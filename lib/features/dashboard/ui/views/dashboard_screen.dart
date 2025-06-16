@@ -1,3 +1,6 @@
+import 'package:az_task/core/common/widgets/spaces.dart';
+import 'package:az_task/core/common/widgets/theme_toggle_switch.dart';
+import 'package:az_task/core/images/assets_images.dart';
 import 'package:flutter/material.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -5,8 +8,38 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text('Dashboard')),
+    return Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundImage: AssetImage(AssetsImages.person),
+                          radius: 20,
+                        ),
+                        horizontalSpace(20),
+                        Text(
+                          "Welcome to AZ",
+                          style: Theme.of(context).textTheme.titleMedium
+                              ?.copyWith(fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    ThemeToggleSwitch(),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
