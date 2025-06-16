@@ -34,4 +34,9 @@ class _CustomFadeInAnimationState extends State<CustomFadeInAnimation>
   Widget build(BuildContext context) {
     return FadeTransition(opacity: opacity, child: widget.child);
   }
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
 }

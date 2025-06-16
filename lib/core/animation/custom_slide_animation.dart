@@ -38,4 +38,10 @@ class _CustomSlideAnimationState extends State<CustomSlideAnimation>
   Widget build(BuildContext context) {
     return SlideTransition(position: position, child: widget.child);
   }
+
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
 }
