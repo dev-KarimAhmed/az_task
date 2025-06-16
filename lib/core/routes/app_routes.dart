@@ -2,6 +2,7 @@
 
 import 'package:az_task/core/routes/base_route.dart';
 import 'package:az_task/features/authentication/ui/views/login_screen.dart';
+import 'package:az_task/features/dashboard/ui/views/dashboard_screen.dart';
 import 'package:az_task/features/onboarding_screen/ui/views/last_view.dart';
 import 'package:az_task/features/onboarding_screen/ui/views/onboarding_view.dart';
 import 'package:az_task/features/splash_screen/ui/views/splash_view.dart';
@@ -15,24 +16,21 @@ class AppRoutes {
   static const dashboardScreen = '/dashboardScreen';
   static const lastView = '/lastview';
 
-
-   static Route<void> onGenerateRoute(RouteSettings settings) {
+  static Route<void>? onGenerateRoute(RouteSettings settings) {
     final args = settings.arguments;
     switch (settings.name) {
-    case splashScreen:
-    return BaseRoute(page:  SplashScreen());
-    case onboardingScreen:
-      return BaseRoute(page: const OnboardingScreen());
-     case lastView:
-      return BaseRoute(page: const LastView());
-     case loginScreen:
-      return BaseRoute(page: LoginScreen());  
+      case splashScreen:
+        return BaseRoute(page: SplashScreen());
+      case onboardingScreen:
+        return BaseRoute(page: const OnboardingScreen());
+      case lastView:
+        return BaseRoute(page: const LastView());
+      case loginScreen:
+        return BaseRoute(page: LoginScreen());
+      case dashboardScreen:
+        return BaseRoute(page: const DashboardScreen());  
       default:
-        return BaseRoute(page: const Scaffold(
-          body: Center(
-            child: Text('No route defined for This Page'),
-          ),
-        ));
+        return null;
     }
   }
 }

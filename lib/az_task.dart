@@ -16,14 +16,17 @@ class AZTask extends StatelessWidget {
         designSize: const Size(360, 690),
         minTextAdapt: true,
         splitScreenMode: true,
-        child: BlocBuilder<ThemeCubit , bool>(
+        child: BlocBuilder<ThemeCubit, bool>(
           builder: (context, state) {
-            return MaterialApp(
-              debugShowCheckedModeBanner: false,
-              title: 'AZ Task',
-              theme: state ? AppTheme.darkTheme : AppTheme.lightTheme,
-              onGenerateRoute: AppRoutes.onGenerateRoute,
-              initialRoute: AppRoutes.splashScreen,
+            return GestureDetector(
+              onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+              child: MaterialApp(
+                debugShowCheckedModeBanner: false,
+                title: 'AZ Task',
+                theme: state ? AppTheme.darkTheme : AppTheme.lightTheme,
+                onGenerateRoute: AppRoutes.onGenerateRoute,
+                initialRoute: AppRoutes.splashScreen,
+              ),
             );
           },
         ),
