@@ -1,3 +1,4 @@
+import 'package:az_task/core/common/widgets/theme_toggle_switch.dart';
 import 'package:az_task/core/extensions/navigation_extenstion.dart';
 import 'package:az_task/core/images/assets_images.dart';
 import 'package:az_task/core/routes/app_routes.dart';
@@ -15,6 +16,7 @@ class OnboardingScreen extends StatefulWidget {
 class _OnboardingScreenState extends State<OnboardingScreen> {
   final PageController pageController = PageController();
   int currentPage = 0;
+  bool isDark = false;
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +56,18 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   subtitle: "In AZ , Hope You Enjoy Our Services",
                 ),
               ],
+            ),
+            Positioned(
+              top: 15,
+              left: 15,
+              child: ThemeToggleSwitch(
+                isDarkMode: isDark,
+                onTap: () {
+                  setState(() {
+                    isDark = !isDark;
+                  });
+                },
+              ),
             ),
             Positioned(
               top: 15,
