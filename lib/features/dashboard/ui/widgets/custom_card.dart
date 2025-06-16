@@ -1,4 +1,3 @@
-
 import 'package:az_task/core/animation/custom_slide_hrizontal.dart';
 import 'package:az_task/core/common/widgets/spaces.dart';
 import 'package:az_task/core/theme/app_colors.dart';
@@ -11,12 +10,15 @@ class CustomCard extends StatelessWidget {
     super.key,
     required this.cardModel,
     required this.isRevresed,
+    required this.duration,
   });
   final CardModel cardModel;
   final bool isRevresed;
+  final int duration;
   @override
   Widget build(BuildContext context) {
     return CustomSlideHorizontal(
+      duration: duration,
       reverse: isRevresed,
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),

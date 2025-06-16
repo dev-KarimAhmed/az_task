@@ -101,7 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         isLoading = false;
                       });
                       // ignore: use_build_context_synchronously
-                      context.pushReplacmentNamed(AppRoutes.dashboardScreen);
+                      context.pushNamed(AppRoutes.dashboardScreen);
                     },
                   ),
                 ],
