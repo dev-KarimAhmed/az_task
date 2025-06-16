@@ -1,4 +1,5 @@
 
+import 'package:az_task/core/common/widgets/spaces.dart';
 import 'package:az_task/core/extensions/navigation_extenstion.dart';
 import 'package:az_task/core/routes/app_routes.dart';
 import 'package:az_task/features/splash_screen/ui/widgets/fade_animation_image.dart';
@@ -46,7 +47,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         FadeAnimationImage(fadeAnimation: fadeAnimation),
-        const SizedBox(height: 8),
+        verticalSpace(8),
         SlidingAnimationText(slidingAnimation: slidingAnimation),
       ],
     );
