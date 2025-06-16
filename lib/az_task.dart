@@ -1,4 +1,7 @@
+import 'package:az_task/core/routes/app_routes.dart';
+import 'package:az_task/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+
 
 class AZTask extends StatelessWidget {
   const AZTask({super.key});
@@ -7,10 +10,10 @@ class AZTask extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
+      title: 'AZ Task',
+      theme: AppTheme.darkTheme,
+      onGenerateRoute: AppRoutes.onGenerateRoute,
+      initialRoute: AppRoutes.splashScreen,
       
     );
   }
