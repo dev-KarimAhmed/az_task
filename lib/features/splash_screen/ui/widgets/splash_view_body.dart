@@ -1,4 +1,3 @@
-
 import 'package:az_task/core/common/widgets/spaces.dart';
 import 'package:az_task/core/extensions/navigation_extenstion.dart';
 import 'package:az_task/core/routes/app_routes.dart';
@@ -27,7 +26,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   }
 
   void goToHome() {
-    Future.delayed(const Duration(seconds: 60), () {
+    Future.delayed(const Duration(milliseconds: 1800), () {
       // ignore: use_build_context_synchronously
       context.pushReplacmentNamed(AppRoutes.onboardingScreen);
     });
@@ -54,7 +53,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
   }
 
   void initAnimation() {
-
     animationController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 1),
@@ -70,8 +68,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
       end: 1.0,
     ).animate(animationController);
 
-
     animationController.forward();
   }
-
 }
