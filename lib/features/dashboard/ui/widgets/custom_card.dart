@@ -2,9 +2,10 @@ import 'package:az_task/core/animation/custom_slide_hrizontal.dart';
 import 'package:az_task/core/common/widgets/spaces.dart';
 import 'package:az_task/core/theme/app_colors.dart';
 import 'package:az_task/features/dashboard/data/card_model.dart';
-import 'package:az_task/features/dashboard/ui/views/dashboard_screen.dart';
+import 'package:az_task/features/dashboard/ui/widgets/cusotm_hero_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class CustomCard extends StatelessWidget {
   const CustomCard({
@@ -29,31 +30,7 @@ class CustomCard extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              InkWell(
-                onTap:
-                    () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder:
-                            (context) =>
-                                HeroScreenDetails(cardModel: cardModel),
-                      ),
-                    ),
-                child: Hero(
-                  tag: cardModel,
-                  child: Container(
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.all(16),
-                    height: 60.h,
-                    width: 60.w,
-                    decoration: BoxDecoration(
-                      color: cardModel.iconColor.withAlpha(55),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Icon(cardModel.icon, color: cardModel.iconColor),
-                  ),
-                ),
-              ),
+              CustomHeroIcon(cardModel: cardModel),
               Column(
                 children: [
                   Text(
