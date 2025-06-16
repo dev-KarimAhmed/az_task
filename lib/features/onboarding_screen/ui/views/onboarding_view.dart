@@ -57,18 +57,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
               ],
             ),
-            Positioned(
-              top: 15,
-              left: 15,
-              child: ThemeToggleSwitch(
-                isDarkMode: isDark,
-                onTap: () {
-                  setState(() {
-                    isDark = !isDark;
-                  });
-                },
-              ),
-            ),
+            Positioned(top: 15, left: 15, child: ThemeToggleSwitch()),
             Positioned(
               top: 15,
               right: 15,
