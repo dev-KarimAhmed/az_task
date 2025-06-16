@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
+    fontFamily: "Poppins",
     primaryColor: AppColors.primary,
     scaffoldBackgroundColor: AppColors.backgroundLight,
     cardColor: AppColors.surfaceLight,
@@ -25,6 +26,7 @@ class AppTheme {
   );
 
   static ThemeData darkTheme = ThemeData(
+    fontFamily: "Poppins",
     primaryColor: AppColors.primary,
     scaffoldBackgroundColor: AppColors.backgroundDark,
     cardColor: AppColors.surfaceDark,
