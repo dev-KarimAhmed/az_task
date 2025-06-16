@@ -15,24 +15,19 @@ class AppRoutes {
   static const dashboardScreen = '/dashboardScreen';
   static const lastView = '/lastview';
 
-
-   static Route<void> onGenerateRoute(RouteSettings settings) {
+  static Route<void>? onGenerateRoute(RouteSettings settings) {
     final args = settings.arguments;
     switch (settings.name) {
-    case splashScreen:
-    return BaseRoute(page:  SplashScreen());
-    case onboardingScreen:
-      return BaseRoute(page: const OnboardingScreen());
-     case lastView:
-      return BaseRoute(page: const LastView());
-     case loginScreen:
-      return BaseRoute(page: LoginScreen());  
+      case splashScreen:
+        return BaseRoute(page: SplashScreen());
+      case onboardingScreen:
+        return BaseRoute(page: const OnboardingScreen());
+      case lastView:
+        return BaseRoute(page: const LastView());
+      case loginScreen:
+        return BaseRoute(page: LoginScreen());
       default:
-        return BaseRoute(page: const Scaffold(
-          body: Center(
-            child: Text('No route defined for This Page'),
-          ),
-        ));
+        return null;
     }
   }
 }
