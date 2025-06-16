@@ -1,6 +1,7 @@
 // ignore_for_file: unused_local_variable
 
 import 'package:az_task/core/routes/base_route.dart';
+import 'package:az_task/features/onboarding_screen/ui/views/last_view.dart';
 import 'package:az_task/features/onboarding_screen/ui/views/onboarding_view.dart';
 import 'package:az_task/features/splash_screen/ui/views/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ class AppRoutes {
   static const onboardingScreen = '/onboardingScreen';
   static const loginScreen = '/loginScreen';
   static const dashboardScreen = '/dashboardScreen';
+  static const lastView = '/lastview';
 
 
    static Route<void> onGenerateRoute(RouteSettings settings) {
@@ -20,7 +22,8 @@ class AppRoutes {
     return BaseRoute(page:  SplashScreen());
     case onboardingScreen:
       return BaseRoute(page: const OnboardingScreen());
-      
+     case lastView:
+      return BaseRoute(page: const LastView()); 
       default:
         return BaseRoute(page: const Scaffold(
           body: Center(
