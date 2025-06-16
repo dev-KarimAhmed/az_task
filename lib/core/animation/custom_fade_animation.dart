@@ -22,11 +22,10 @@ class _CustomFadeInAnimationState extends State<CustomFadeInAnimation>
     super.initState();
     animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 150),
+      duration: Duration(milliseconds: widget.milliDuration),
     );
-    opacity = CurvedAnimation(
-      parent: animationController,
-      curve: Curves.easeIn,
+    opacity = Tween<double>(begin: 0.0, end: 1).animate(
+      CurvedAnimation(parent: animationController, curve: Curves.easeIn),
     );
     animationController.forward();
   }

@@ -34,7 +34,7 @@ class OnboardingPage extends StatelessWidget {
             child: Column(
               children: [
                 Image.asset(imagePath),
-                verticalSpace(24),
+                verticalSpace(16),
                 Text(
                   textAlign: TextAlign.center,
                   title,
@@ -42,7 +42,7 @@ class OnboardingPage extends StatelessWidget {
                     context,
                   ).titleLarge?.copyWith(fontWeight: FontWeight.bold),
                 ),
-                verticalSpace(62),
+                verticalSpace(16),
                 Text(
                   textAlign: TextAlign.center,
                   subtitle,
@@ -64,6 +64,7 @@ class OnboardingPage extends StatelessWidget {
               if (currentPage < 2) {
                 pageController.animateToPage(
                   currentPage + 1,
+
                   duration: const Duration(milliseconds: 150),
                   curve: Curves.easeIn,
                 );
@@ -77,4 +78,3 @@ class OnboardingPage extends StatelessWidget {
     );
   }
 }
-

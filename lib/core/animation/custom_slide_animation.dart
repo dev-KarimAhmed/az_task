@@ -1,8 +1,11 @@
-
 import 'package:flutter/material.dart';
 
 class CustomSlideAnimation extends StatefulWidget {
-  const CustomSlideAnimation({super.key, required this.child,  this.milliDuration = 300});
+  const CustomSlideAnimation({
+    super.key,
+    required this.child,
+    this.milliDuration = 300,
+  });
 
   final Widget child;
   final int milliDuration;
@@ -11,7 +14,8 @@ class CustomSlideAnimation extends StatefulWidget {
   State<CustomSlideAnimation> createState() => _CustomSlideAnimationState();
 }
 
-class _CustomSlideAnimationState extends State<CustomSlideAnimation> with SingleTickerProviderStateMixin{
+class _CustomSlideAnimationState extends State<CustomSlideAnimation>
+    with SingleTickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<Offset> position;
   @override
@@ -19,21 +23,16 @@ class _CustomSlideAnimationState extends State<CustomSlideAnimation> with Single
     super.initState();
     animationController = AnimationController(
       vsync: this,
-      duration:  Duration(milliseconds: widget.milliDuration),
+      duration: Duration(milliseconds: widget.milliDuration),
     );
     position = Tween<Offset>(
-      begin: const Offset(0.0, 2.0),
+      begin: const Offset(0.0, 1.0),
       end: Offset.zero,
     ).animate(
-      CurvedAnimation(
-        parent: animationController,
-        curve: Curves.easeIn,
-      ),
+      CurvedAnimation(parent: animationController, curve: Curves.easeIn),
     );
     animationController.forward();
   }
-
- 
 
   @override
   Widget build(BuildContext context) {

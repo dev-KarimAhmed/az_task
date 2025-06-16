@@ -15,7 +15,7 @@ class AZTask extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'AZ Task',
-        theme: AppTheme.darkTheme,
+        theme: AppTheme.lightTheme,
         onGenerateRoute: AppRoutes.onGenerateRoute,
         initialRoute: AppRoutes.splashScreen,
       ),

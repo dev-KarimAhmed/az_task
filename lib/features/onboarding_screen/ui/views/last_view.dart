@@ -22,12 +22,17 @@ class LastView extends StatelessWidget {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+
           children: [
-            const Text('Start Success Story , With Us!'),
-            verticalSpace(40),
-            CustomFadeInAnimation(
-              child: CustomButton(),
+            Text(
+              'Start Success Story , With Us!',
+              style: TextTheme.of(
+                context,
+              ).titleLarge?.copyWith(fontWeight: FontWeight.bold),
             ),
+            verticalSpace(40),
+            CustomFadeInAnimation(child: CustomButton()),
           ],
         ),
       ),
