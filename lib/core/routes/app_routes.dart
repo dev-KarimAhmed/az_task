@@ -2,6 +2,7 @@
 
 import 'package:az_task/core/routes/base_route.dart';
 import 'package:az_task/features/authentication/ui/views/login_screen.dart';
+import 'package:az_task/features/dashboard/ui/views/dashboard_screen.dart';
 import 'package:az_task/features/onboarding_screen/ui/views/last_view.dart';
 import 'package:az_task/features/onboarding_screen/ui/views/onboarding_view.dart';
 import 'package:az_task/features/splash_screen/ui/views/splash_view.dart';
@@ -26,6 +27,8 @@ class AppRoutes {
         return BaseRoute(page: const LastView());
       case loginScreen:
         return BaseRoute(page: LoginScreen());
+      case dashboardScreen:
+        return BaseRoute(page: const DashboardScreen());  
       default:
         return null;
     }

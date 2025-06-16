@@ -1,7 +1,10 @@
 import 'package:az_task/core/common/widgets/custom_btn.dart';
 import 'package:az_task/core/common/widgets/spaces.dart';
 import 'package:az_task/core/common/widgets/theme_toggle_switch.dart';
-import 'package:az_task/core/theme/app_colors.dart';
+import 'package:az_task/core/extensions/navigation_extenstion.dart';
+import 'package:az_task/core/routes/app_routes.dart';
+import 'package:az_task/features/authentication/ui/widgets/custom_animate_loading.dart';
+import 'package:az_task/features/authentication/ui/widgets/custom_txt_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -50,7 +53,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     suffixIcon: const Icon(Icons.email),
                     keyboardType: TextInputType.emailAddress,
-                    controller: TextEditingController(),
                   ),
                   verticalSpace(16),
                   AuthenticationFormField(
@@ -82,25 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: double.infinity,
                     child:
                         isLoading
-                            ? Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  height: 20.h,
-                                  width: 20.w,
-                                  child: const CircularProgressIndicator(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                horizontalSpace(8),
-                                Text(
-                                  "Please Wait...",
-                                  style: TextTheme.of(
-                                    context,
-                                  ).bodyLarge?.copyWith(color: Colors.white),
-                                ),
-                              ],
-                            )
+                            ? CustomLoadingIndicator()
                             : Text(
                               "Login",
                               style: TextTheme.of(
@@ -116,6 +100,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       setState(() {
                         isLoading = false;
                       });
+                      // ignore: use_build_context_synchronously
+                      context.pushReplacmentNamed(AppRoutes.dashboardScreen);
                     },
                   ),
                 ],
@@ -127,68 +113,3 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-
-class AuthenticationFormField extends StatelessWidget {
-  const AuthenticationFormField({
-    super.key,
-    required this.title,
-    required this.hintText,
-    this.obscureText = false,
-    this.validator,
-    this.suffixIcon,
-    required this.keyboardType,
-    this.controller,
-    this.helperText,
-  });
-
-  final String title;
-  final String hintText;
-  final bool obscureText;
-  final String? Function(String?)? validator;
-  final Widget? suffixIcon;
-  final TextInputType keyboardType;
-  final TextEditingController? controller;
-  final String? helperText;
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(title),
-        verticalSpace(8),
-        TextFormField(
-          
-          cursorOpacityAnimates: true,
-          controller: controller,
-          obscureText: obscureText,
-          validator: validator,
-          cursorColor: AppColors.primary,
-          keyboardType: keyboardType,
-          decoration: InputDecoration(
-            helperText: helperText,
-            hintText: hintText,
-
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8.0),
-              borderSide: BorderSide(color: AppColors.secondary, width: 1.0),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8.0),
-              borderSide: BorderSide(color: AppColors.secondary, width: 1.0),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8.0),
-              borderSide: BorderSide(color: AppColors.secondary, width: 1.8),
-            ),
-            errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8.0),
-              borderSide: BorderSide(color: Colors.red, width: 1.0),
-            ),
-            suffixIcon: suffixIcon,
-          ),
-        ),
-      ],
-    );
-  }
-}
-
