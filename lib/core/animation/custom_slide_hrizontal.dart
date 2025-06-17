@@ -74,4 +74,10 @@ class _CustomScaleAnimationState extends State<CustomScaleAnimation>
   Widget build(BuildContext context) {
     return ScaleTransition(scale: scale, child: widget.child);
   }
+
+  @override
+  dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 }
